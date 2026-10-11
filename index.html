@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6fc">
+  <title>TaskFlow — Focus on what matters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.8 13A8.5 8.5 0 0 1 11 3.2 8.5 8.5 0 1 0 20.8 13Z"/></symbol>
+    <symbol id="i-sun-small" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18m-2 0-.9 14H5.9L5 6m4 0V4h6v2m-5 4v6m4-6v6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z"/><path d="m19 14 1 2.5 2.5 1-2.5 1L19 21l-1-2.5-2.5-1 2.5-1 1-2.5Z"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="TaskFlow home"><span class="brand-mark"><svg><use href="#i-check"/></svg></span><span>taskflow<span class="brand-period">.</span></span></a>
+      <div class="workspace-switch"><span class="workspace-icon">W</span><span class="workspace-copy"><strong>Workspace</strong><small>Personal space</small></span></div>
+      <div class="side-caption">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Task views">
+        <button class="nav-link active" data-view="day"><svg><use href="#i-sun"/></svg><span>My Day</span><span class="nav-count" id="nav-day-count">0</span></button>
+        <button class="nav-link" data-view="upcoming"><svg><use href="#i-calendar"/></svg><span>Upcoming</span><span class="nav-count" id="nav-upcoming-count">0</span></button>
+        <button class="nav-link" data-view="all"><svg><use href="#i-grid"/></svg><span>All Tasks</span><span class="nav-count" id="nav-all-count">0</span></button>
+        <button class="nav-link" data-view="completed"><svg><use href="#i-check"/></svg><span>Completed</span><span class="nav-count" id="nav-completed-count">0</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-tip"><div class="tip-icon"><svg><use href="#i-sparkle"/></svg></div><p>A little progress each day adds up to big results.</p><span>KEEP YOUR MOMENTUM</span></div>
+      <button class="theme-toggle" id="theme-toggle" type="button"><svg class="theme-toggle-icon"><use href="#i-moon"/></svg><span id="theme-label">Dark mode</span><span class="toggle-track"><span class="toggle-thumb"></span></span></button>
+      <div class="profile"><span class="profile-avatar" aria-hidden="true">Y</span><span class="profile-info"><strong>Your account</strong><small>Personal plan</small></span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-label="Open navigation"><svg><use href="#i-menu"/></svg></button><div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong id="breadcrumb-view">My Day</strong></div><div class="topbar-right"><span class="today-label" id="top-date"></span><span class="top-avatar">Y</span></div></header>
+      <div class="content-wrap">
+        <section class="welcome-header"><div><div class="welcome-kicker"><span class="kicker-dot"></span> YOUR PRODUCTIVITY SPACE</div><h1 id="page-title">Good morning, <span>let’s focus.</span></h1><p id="page-subtitle">Make today count. One task at a time.</p></div><div class="header-date"><span class="date-icon"><svg><use href="#i-calendar"/></svg></span><span><strong id="date-long">Monday, June 10</strong><small id="date-year">2026</small></span></div></section>
+
+        <section class="summary-grid" aria-label="Task summary">
+          <article class="summary-card"><div class="summary-heading"><span>Total tasks</span><span class="summary-icon purple-icon"><svg><use href="#i-grid"/></svg></span></div><strong class="summary-number" id="stat-total">0</strong><span class="summary-note">Across your workspace</span></article>
+          <article class="summary-card"><div class="summary-heading"><span>Pending</span><span class="summary-icon amber-icon"><svg><use href="#i-clock"/></svg></span></div><strong class="summary-number" id="stat-pending">0</strong><span class="summary-note">Ready when you are</span></article>
+          <article class="summary-card"><div class="summary-heading"><span>Completed</span><span class="summary-icon green-icon"><svg><use href="#i-check"/></svg></span></div><strong class="summary-number" id="stat-completed">0</strong><span class="summary-note">Little wins add up</span></article>
+          <article class="summary-card"><div class="summary-heading"><span>Overdue</span><span class="summary-icon rose-icon"><svg><use href="#i-calendar"/></svg></span></div><strong class="summary-number" id="stat-overdue">0</strong><span class="summary-note">Tasks past their due date</span></article>
+        </section>
+
+        <section class="task-panel" aria-label="Task management">
+          <div class="panel-heading"><div><div class="section-eyebrow">YOUR PLAN</div><h2 id="list-heading">Today’s focus</h2></div><button id="open-task-form" class="primary-button" type="button"><svg><use href="#i-plus"/></svg><span>New task</span></button></div>
+          <form id="task-form" class="task-form" hidden novalidate>
+            <div class="form-title-row"><div><h3 id="form-heading">Create a task</h3><p>Capture it now, focus on it later.</p></div><button id="close-task-form" class="icon-button close-form" type="button" aria-label="Close form"><svg><use href="#i-close"/></svg></button></div>
+            <label class="field-label" for="task-title">Task title <span>*</span></label><input class="text-field" id="task-title" maxlength="120" placeholder="e.g. Prepare project proposal" required>
+            <label class="field-label" for="task-description">Description <small>OPTIONAL</small></label><textarea class="text-field description-field" id="task-description" maxlength="500" rows="2" placeholder="Add a few details to help you get started..."></textarea>
+            <div class="form-options"><div><label class="field-label" for="task-date">Due date <small>OPTIONAL</small></label><input class="text-field" type="date" id="task-date"></div><div><label class="field-label" for="task-priority">Priority</label><select class="text-field" id="task-priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></div><div><label class="field-label" for="task-category">Category</label><select class="text-field" id="task-category"><option>Personal</option><option>Work</option><option>Study</option><option>Other</option></select></div></div>
+            <div class="form-error" id="form-error" role="alert"></div><div class="form-actions"><button id="cancel-task" class="secondary-button" type="button">Cancel</button><button class="primary-button" id="save-task" type="submit"><svg><use href="#i-plus"/></svg><span>Add task</span></button></div>
+          </form>
+
+          <div class="toolbar"><div class="search-field"><svg><use href="#i-search"/></svg><input id="task-search" type="search" placeholder="Search your tasks..." aria-label="Search tasks"><kbd>/</kbd></div><label class="select-filter"><span class="sr-only">Filter by category</span><select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option><option>Personal</option><option>Work</option><option>Study</option><option>Other</option></select></label><label class="select-filter priority-filter"><span class="sr-only">Filter by priority</span><select id="priority-filter" aria-label="Filter by priority"><option value="all">All priorities</option><option value="high">High priority</option><option value="medium">Medium priority</option><option value="low">Low priority</option></select></label><label class="select-filter sort-filter"><span class="sr-only">Sort tasks</span><select id="sort-tasks" aria-label="Sort tasks"><option value="created">Recently added</option><option value="due">Due date</option><option value="priority">Priority</option></select></label></div>
+          <div class="filter-tabs" role="tablist" aria-label="Task status"><button class="filter-tab active" data-status="all" role="tab" aria-selected="true">All <span id="filter-all-count">0</span></button><button class="filter-tab" data-status="active" role="tab" aria-selected="false">Active <span id="filter-active-count">0</span></button><button class="filter-tab" data-status="completed" role="tab" aria-selected="false">Completed <span id="filter-completed-count">0</span></button></div>
+          <div class="list-summary"><span id="visible-summary">0 tasks</span><div class="progress-inline"><div class="progress-track"><span id="progress-bar"></span></div><span id="progress-label">0%</span></div></div>
+          <div class="task-list" id="task-list" aria-live="polite"></div>
+          <div class="empty-state" id="empty-state"><div class="empty-art"><svg><use href="#i-check"/></svg><span></span></div><h3 id="empty-title">A clear space to begin</h3><p id="empty-description">Add a task and make a little progress today.</p><button class="text-button" id="empty-add" type="button"><svg><use href="#i-plus"/></svg> Create your first task</button><button class="text-button" id="empty-clear-filters" type="button" hidden>Clear filters</button></div>
+          <div class="panel-footer"><span id="footer-summary">You’re all caught up.</span><button id="clear-completed" class="clear-button" type="button" hidden>Clear completed</button></div>
+        </section>
+        <footer class="page-footer"><span>Small steps. Meaningful progress.</span><span>Made for focus <span class="footer-star">✦</span></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
